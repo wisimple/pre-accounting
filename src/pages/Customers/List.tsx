@@ -161,7 +161,7 @@ const List = () => {
                             {Math.abs(person.blnc)} ₺ {person.blnc < 0 ? "(B)" : person.blnc === 0 ? "" : "(A)"}
                           </span>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm">
                           <Link
                             to={`/customers/${person._id}/transactions`}
                             className="flex items-center text-blue-600"

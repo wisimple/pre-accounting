@@ -15,27 +15,27 @@ export const routes = [
   {
     icon: <SwitchHorizontalIcon className="h-5 w-5" />,
     text: "Alış Satış İşlemleri",
-    path: "/sales-and-purchases-0",
+    path: "/invoices",
     subRoutes: [
-      { icon: <CubeIcon className="h-4 w-4" />, text: "a", path: "/a" },
-      { icon: <CubeIcon className="h-4 w-4" />, text: "b", path: "/b" },
-      { icon: <CubeIcon className="h-4 w-4" />, text: "c", path: "/c" },
+      { icon: <CubeIcon className="h-4 w-4" />, text: "İşlemleri Görüntüle", path: "/invoices" },
+      { icon: <CubeIcon className="h-4 w-4" />, text: "Alış Yap", path: "/invoices/create/purchase" },
+      { icon: <CubeIcon className="h-4 w-4" />, text: "Satış Yap", path: "/invoices/create/sell" },
+      { icon: <CubeIcon className="h-4 w-4" />, text: "Virman Fişi", path: "/virman-fisi" },
+    ],
+  },
+  {
+    icon: <CashIcon className="h-5 w-5" />,
+    text: "Tahsilat ve Ödemeler",
+    path: "/transactions",
+    subRoutes: [
+      { icon: <CubeIcon className="h-4 w-4" />, text: "Tahsil Et", path: "/transactions/create/collect" },
+      { icon: <CubeIcon className="h-4 w-4" />, text: "Ödeme Yap", path: "/transactions/create/pay" },
     ],
   },
   {
     icon: <CubeIcon className="h-5 w-5" />,
     text: "Stok Yönetimi",
     path: "/sales-and-purchases--0",
-    subRoutes: [
-      { icon: <CubeIcon className="h-4 w-4" />, text: "a", path: "/a" },
-      { icon: <CubeIcon className="h-4 w-4" />, text: "b", path: "/b" },
-      { icon: <CubeIcon className="h-4 w-4" />, text: "c", path: "/c" },
-    ],
-  },
-  {
-    icon: <CashIcon className="h-5 w-5" />,
-    text: "Tahsilat ve Ödemeler",
-    path: "/sales-and-purchases",
     subRoutes: [
       { icon: <CubeIcon className="h-4 w-4" />, text: "a", path: "/a" },
       { icon: <CubeIcon className="h-4 w-4" />, text: "b", path: "/b" },

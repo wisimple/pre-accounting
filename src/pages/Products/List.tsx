@@ -1,6 +1,7 @@
-import { PlusIcon } from "@heroicons/react/solid";
+import { ChevronRightIcon, PlusIcon } from "@heroicons/react/solid";
 import Button from "components/Button";
 import Heading from "components/Heading";
+import { Link } from "react-router-dom";
 
 const products = [
   { _id: "1", name: "12'lik klima", category: { _id: "1", name: "Beyaz Eşya" }, sellPrice: 100, active: true },
@@ -30,10 +31,12 @@ export default function ProductList() {
     <>
       <div className="flex items-center justify-between">
         <Heading level="2">Ürün ve Hizmetler</Heading>
-        <Button size="sm">
-          <PlusIcon className="h-6 w-6" />
-          Yeni Ekle
-        </Button>
+        <Link to="/products/create">
+          <Button size="sm">
+            <PlusIcon className="h-6 w-6" />
+            Yeni Ekle
+          </Button>
+        </Link>
       </div>
       <div className="flex flex-col mt-4">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -72,7 +75,11 @@ export default function ProductList() {
                           {p.active ? "Aktif" : "Pasif"}
                         </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap"></td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="flex items-center text-blue-600 text-sm">
+                          Ayrıntılar <ChevronRightIcon className="w-4 h-4 mr-1" />
+                        </div>
+                      </td>
                     </tr>
                   ))}
                 </tbody>

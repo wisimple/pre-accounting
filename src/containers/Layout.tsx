@@ -34,6 +34,7 @@ const Layout = ({ children }: LayoutProps) => {
                 className="border border-gray-400 placeholder-gray-400 rounded-md py-2 pl-9"
               />
             </div>
+            <div></div>
             <div className="flex items-center">
               <button className="text-gray-500">
                 <BellIcon className="h-6 w-6" />

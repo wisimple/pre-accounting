@@ -1,7 +1,6 @@
 import Heading from "components/Heading";
 import { getAvatarUrl } from "helpers/customerHelpers";
 import { ICustomer } from "interfaces/ICustomer";
-import { IIncovice } from "interfaces/IInvoice";
 import { Switch, Route, useParams, useRouteMatch, useLocation, NavLink, Link } from "react-router-dom";
 
 import {
@@ -15,6 +14,8 @@ import {
 } from "@heroicons/react/solid";
 
 import Button from "components/Button";
+
+import InvoiceList from "components/Invoice/List";
 
 const customer: ICustomer = {
   _id: "1",
@@ -30,8 +31,6 @@ const customer: ICustomer = {
 
 const CustomerShow = () => {
   const params: { id: string } = useParams();
-  const { url } = useRouteMatch();
-  const { pathname } = useLocation();
 
   return (
     <>
@@ -50,7 +49,7 @@ const CustomerShow = () => {
             <CashIcon className="h-5 w-5" /> <span className="ml-1">Cari Hesap Ekstresi</span>
           </NavLink>
           <NavLink
-            to={`/customers/${params.id}/sales`}
+            to={`/customers/${params.id}/invoices`}
             activeClassName="bg-gray-50"
             className="flex ml-2 px-2 py-1 rounded-md"
           >
@@ -58,51 +57,37 @@ const CustomerShow = () => {
           </NavLink>
         </div>
       </div>
-      <div className="flex items-center justify-end mt-3">
-        <div className="px-2">
-          {pathname.split("/").pop() === "transactions" ? (
-            <>
-              <Link to="/">
-                <Button size="sm" color="green">
-                  <ArrowSmDownIcon className="h-4 w-4 mr-1" /> Tahsilat Yap
-                </Button>
-              </Link>
-              <Link to="/" className="ml-2">
-                <Button size="sm" color="gray">
-                  <ArrowSmUpIcon className="h-4 w-4 mr-1" /> Ödeme Yap
-                </Button>
-              </Link>
-            </>
-          ) : (
-            <>
-              <Link to="/">
-                <Button size="sm" color="gray">
-                  <ClipboardListIcon className="h-4 w-4 mr-1" /> Alış Yap
-                </Button>
-              </Link>
-              <Link to="/" className="ml-2">
-                <Button size="sm" color="green">
-                  <ClipboardCheckIcon className="h-4 w-4 mr-1" /> Satış Yap
-                </Button>
-              </Link>
-            </>
-          )}
-        </div>
-        <Button>
-          <PrinterIcon className="h-5 w-5 mr-1" /> Yazdır
-        </Button>
-      </div>
+
       <Switch>
-        <Route path={`${url}/transactions`} component={Transactions} />
-        <Route path={`${url}/sales`} component={Sales} />
+        <Route path={`/customers/:customerId/transactions`} component={Transactions} />
+        <Route path={`/customers/:customerId/invoices`} component={Invoices} />
       </Switch>
     </>
   );
 };
 
 function Transactions() {
+  const { pathname } = useLocation();
+
   return (
     <>
+      <div className="flex items-center justify-end mt-3">
+        <div className="px-2">
+          <Link to={pathname + "/create/collect"}>
+            <Button size="sm" color="green">
+              <ArrowSmDownIcon className="h-4 w-4 mr-1" /> Tahsil Et
+            </Button>
+          </Link>
+          <Link to={pathname + "/create/pay"} className="ml-2">
+            <Button size="sm" color="gray">
+              <ArrowSmUpIcon className="h-4 w-4 mr-1" /> Ödeme Yap
+            </Button>
+          </Link>
+        </div>
+        <Button>
+          <PrinterIcon className="h-5 w-5 mr-1" /> Yazdır
+        </Button>
+      </div>
       <div className="flex flex-col mt-4">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -176,95 +161,31 @@ function Transactions() {
   );
 }
 
-const invoices: IIncovice[] = [
-  {
-    _id: "1",
-    number: "0000001",
-    customer: {
-      _id: "1",
-      name: "Ali Veli 4950",
-      type: "person",
-      gender: true,
-      blnc: 0,
-      cAt: "2021-03-29T06:49:44.227Z",
-    },
-    subTotal: 1100,
-    discount: 10,
-    total: 1000,
-    items: [],
-    dueAt: "2021-03-29T06:49:44.227Z",
-    cAt: "2021-03-29T06:49:44.227Z",
-  },
-  // More invoices...
-];
+function Invoices() {
+  const params: { customerId: string } = useParams();
+  const { pathname } = useLocation();
 
-function Sales() {
   return (
-    <div className="flex flex-col mt-4">
-      <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-          <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-100 text-gray-600 text-xs font-medium uppercase tracking-wider">
-                <tr>
-                  <th scope="col" className="px-6 py-3 text-left">
-                    Fatura No
-                  </th>
-                  <th scope="col" className="px-6 py-3 text-left">
-                    Kişi / Kurum
-                  </th>
-                  <th scope="col" className="px-6 py-3 text-left">
-                    Tutar
-                  </th>
-                  <th scope="col" className="px-6 py-3 text-left">
-                    Tarih
-                  </th>
-                  <th scope="col" className="px-6 py-3 text-left">
-                    Fatura Tarihi
-                  </th>
-                  <th scope="col" className="relative px-6 py-3">
-                    <span className="sr-only">İşlem</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {invoices.map((invoice) => (
-                  <tr key={invoice._id}>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">{invoice.number}</div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="flex items-center">
-                        <div className="flex-shrink-0 h-10 w-10">
-                          <img className="h-10 w-10 rounded-full" src={getAvatarUrl(invoice.customer)} alt="Profil" />
-                        </div>
-                        <div className="ml-4">
-                          <div className="text-sm font-medium text-gray-900">{invoice.customer.name}</div>
-                        </div>
-                      </div>
-                    </td>
-
-                    <td className="px-6 py-4 whitespace-nowrap text-sm">{invoice.total}.00 ₺</td>
-
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                      {new Date(invoice.cAt).toLocaleDateString()}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                      {new Date(invoice.dueAt).toLocaleDateString()}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                        Görüntüle
-                      </a>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+    <>
+      <div className="flex items-center justify-end mt-3">
+        <div className="px-2">
+          <Link to={pathname + "/create/purchase"}>
+            <Button size="sm" color="gray">
+              <ClipboardListIcon className="h-4 w-4 mr-1" /> Alış Yap
+            </Button>
+          </Link>
+          <Link to={pathname + "/create/sell"} className="ml-2">
+            <Button size="sm" color="green">
+              <ClipboardCheckIcon className="h-4 w-4 mr-1" /> Satış Yap
+            </Button>
+          </Link>
         </div>
+        <Button>
+          <PrinterIcon className="h-5 w-5 mr-1" /> Yazdır
+        </Button>
       </div>
-    </div>
+      <InvoiceList customerId={params.customerId} />
+    </>
   );
 }
 

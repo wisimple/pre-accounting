@@ -6,6 +6,7 @@ export interface IIncovice {
   number?: string;
   customer: ICustomer;
   dueAt: string;
+  type: "sale" | "purchase";
   items?: {
     productId: IProduct;
     desc: string;
