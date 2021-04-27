@@ -8,7 +8,7 @@ import { getAvatarUrl } from "helpers/customerHelpers";
 const invoices: IIncovice[] = [
   {
     _id: "1",
-    number: "0000001",
+    no: "0000001",
     type: "sale",
     customer: {
       _id: "1",
@@ -22,12 +22,13 @@ const invoices: IIncovice[] = [
     discount: 10,
     total: 1000,
     items: [],
+    invDate: "2021-03-21T06:49:44.227Z",
     dueAt: "2021-03-21T06:49:44.227Z",
     cAt: "2021-03-21T06:49:44.227Z",
   },
   {
     _id: "2",
-    number: "0000002",
+    no: "0000002",
     type: "purchase",
     customer: {
       _id: "1",
@@ -41,12 +42,13 @@ const invoices: IIncovice[] = [
     discount: 10,
     total: 2350,
     items: [],
+    invDate: "2021-03-21T06:49:44.227Z",
     dueAt: "2021-03-24T06:49:44.227Z",
     cAt: "2021-03-24T06:49:44.227Z",
   },
   {
     _id: "3",
-    number: "0000003",
+    no: "0000003",
     type: "purchase",
     customer: {
       _id: "1",
@@ -60,6 +62,7 @@ const invoices: IIncovice[] = [
     discount: 10,
     total: 5000,
     items: [],
+    invDate: "2021-03-21T06:49:44.227Z",
     dueAt: "2021-03-27T06:49:44.227Z",
     cAt: "2021-03-27T06:49:44.227Z",
   },
@@ -109,7 +112,7 @@ const InvoiceList = ({ customerId }: InvoiceListProps) => {
                 {invoices.map((invoice) => (
                   <tr key={invoice._id}>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">{invoice.number}</div>
+                      <div className="text-sm text-gray-900">{invoice.no}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm text-gray-900">

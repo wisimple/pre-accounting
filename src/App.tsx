@@ -6,6 +6,8 @@ import Dashboard from "pages/Dashboard";
 
 import ProductList from "pages/Products/List";
 import ProductCreate from "pages/Products/Create";
+import ProductShow from "pages/Products/Show";
+import ProductEdit from "pages/Products/Edit";
 
 import CustomerList from "pages/Customers/List";
 import CustomerCreate from "pages/Customers/Create";
@@ -24,6 +26,8 @@ const App = () => {
           <Route exact path="/" component={Dashboard} />
           <Route exact path="/products" component={ProductList} />
           <Route path="/products/create" component={ProductCreate} />
+          <Route path="/products/:id/edit" component={ProductEdit} />
+          <Route path="/products/:id" component={ProductShow} />
 
           <Route path="/customers/:id/transactions/create/pay" component={TransactionCreate} />
           <Route path="/customers/:id/transactions/create/collect" component={TransactionCreate} />

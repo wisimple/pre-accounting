@@ -1,36 +1,16 @@
-import { ChevronRightIcon, PlusIcon } from "@heroicons/react/solid";
+import { ChevronRightIcon, PlusIcon, ShoppingCartIcon } from "@heroicons/react/solid";
 import Button from "components/Button";
-import Heading from "components/Heading";
 import { Link } from "react-router-dom";
 
-const products = [
-  { _id: "1", name: "12'lik klima", category: { _id: "1", name: "Beyaz Eşya" }, sellPrice: 100, active: true },
-  { _id: "2", name: "12 kg tup", category: { _id: "1", name: "Tup" }, sellPrice: 100, active: true },
-  { _id: "3", name: "24 kg tup", category: { _id: "1", name: "Tup" }, sellPrice: 100, active: true },
-  { _id: "4", name: "12'lik klima", category: { _id: "1", name: "Tup" }, sellPrice: 100, active: true },
-  { _id: "5", name: "12'lik klima", category: { _id: "1", name: "Tup" }, sellPrice: 100, active: true },
-  { _id: "6", name: "12'lik klima", category: { _id: "1", name: "Beyaz Eşya" }, sellPrice: 100, active: true },
-  { _id: "7", name: "12'lik klima", category: { _id: "1", name: "Beyaz Eşya" }, sellPrice: 100, active: true },
-  { _id: "8", name: "12'lik klima", category: { _id: "1", name: "Beyaz Eşya" }, sellPrice: 100, active: true },
-  { _id: "9", name: "12'lik klima", category: { _id: "1", name: "Beyaz Eşya" }, sellPrice: 100, active: true },
-  { _id: "0", name: "12'lik klima", category: { _id: "1", name: "Beyaz Eşya" }, sellPrice: 100, active: true },
-  { _id: "11", name: "12'lik klima", category: { _id: "1", name: "Beyaz Eşya" }, sellPrice: 100, active: true },
-  { _id: "12", name: "12'lik klima", category: { _id: "1", name: "Beyaz Eşya" }, sellPrice: 100, active: true },
-  { _id: "13", name: "12'lik klima", category: { _id: "1", name: "Beyaz Eşya" }, sellPrice: 100, active: true },
-  { _id: "14", name: "12'lik klima", category: { _id: "1", name: "Beyaz Eşya" }, sellPrice: 100, active: true },
-  { _id: "15", name: "12'lik klima", category: { _id: "1", name: "Beyaz Eşya" }, sellPrice: 100, active: true },
-  { _id: "16", name: "12'lik klima", category: { _id: "1", name: "Beyaz Eşya" }, sellPrice: 100, active: true },
-  { _id: "17", name: "12'lik klima", category: { _id: "1", name: "Beyaz Eşya" }, sellPrice: 100, active: true },
-  { _id: "18", name: "12'lik klima", category: { _id: "1", name: "Beyaz Eşya" }, sellPrice: 100, active: true },
-  { _id: "19", name: "12'lik klima", category: { _id: "1", name: "Beyaz Eşya" }, sellPrice: 100, active: true },
-  { _id: "20", name: "12'lik klima", category: { _id: "1", name: "Beyaz Eşya" }, sellPrice: 100, active: true },
-];
+import { products } from "mockData/products";
 
 export default function ProductList() {
   return (
     <>
       <div className="flex items-center justify-between">
-        <Heading level="2">Ürün ve Hizmetler</Heading>
+        <h2 className="page-header">
+          <ShoppingCartIcon /> Ürün ve Hizmetler
+        </h2>
         <Link to="/products/create">
           <Button size="sm">
             <PlusIcon className="h-6 w-6" />
@@ -64,21 +44,24 @@ export default function ProductList() {
                   {products.map((p) => (
                     <tr key={p._id}>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <span className="text-gray-800 text-sm">{p.category.name}</span>
+                        <div className="flex items-center">
+                          <img src="/images/no-image.png" alt="No image" className="w-8 h-8 mr-2 rounded-sm" />
+                          <span className="text-gray-800 text-sm">{p.name}</span>
+                        </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span className="text-gray-900">{p.name}</span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">{p.sellPrice}.00 ₺</td>
+                      <td className="px-6 py-4 whitespace-nowrap">{p.sPrice}.00 ₺</td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                           {p.active ? "Aktif" : "Pasif"}
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center text-blue-600 text-sm">
+                        <Link to={`/products/${p._id}`} className="flex items-center text-blue-600 text-sm">
                           Ayrıntılar <ChevronRightIcon className="w-4 h-4 mr-1" />
-                        </div>
+                        </Link>
                       </td>
                     </tr>
                   ))}

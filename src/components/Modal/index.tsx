@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 interface ModalProps {
@@ -11,7 +11,7 @@ interface ModalProps {
 export default function Modal({ open, setOpen, children }: ModalProps) {
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" static className="fixed z-10 inset-0 overflow-y-auto" open={open} onClose={setOpen}>
+      <Dialog as="div" className="fixed z-10 inset-0 overflow-y-auto" open={open} onClose={setOpen}>
         <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child
             as={Fragment}

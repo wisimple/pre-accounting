@@ -1,8 +1,9 @@
-import { PlusIcon, PhoneIcon, ChevronRightIcon } from "@heroicons/react/solid";
+import { PlusIcon, PhoneIcon, ChevronRightIcon, SearchIcon, CollectionIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
 
 import Heading from "components/Heading";
 import Button from "components/Button";
+import Input from "components/Input";
 
 const people = [
   {
@@ -82,13 +83,23 @@ const List = () => {
   return (
     <>
       <div className="flex items-center justify-between">
-        <Heading level="2">Cari Hesaplar</Heading>
+        <h2 className="page-header">
+          <CollectionIcon /> Cari Hesaplar
+        </h2>
         <Link to="/customers/create">
           <Button size="sm">
             <PlusIcon className="h-6 w-6" />
             Yeni Ekle
           </Button>
         </Link>
+      </div>
+      <div className="flex mt-4">
+        <div className="relative">
+          <span className="absolute left-0 pl-3 text-gray-500 inset-y-0 flex items-center">
+            <SearchIcon className="w-5 h-5" />
+          </span>
+          <input type="search" placeholder="Müşteri Arayın" className="input pl-10" />
+        </div>
       </div>
       <div className="flex flex-col mt-4">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

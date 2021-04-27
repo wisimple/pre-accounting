@@ -3,9 +3,9 @@ import { IProduct } from "./IProduct";
 
 export interface IIncovice {
   _id: string;
-  number?: string;
+  no?: string;
   customer: ICustomer;
-  dueAt: string;
+
   type: "sale" | "purchase";
   items?: {
     productId: IProduct;
@@ -17,6 +17,8 @@ export interface IIncovice {
   discount: number;
   total: number;
   notes?: string;
+  invDate: string;
+  dueAt: string;
   cAt: string;
   uAt?: string;
 }

@@ -9,7 +9,7 @@ import { DocumentAddIcon, PlusIcon } from "@heroicons/react/solid";
 import NumberFormat from "react-number-format";
 import NewCategoryForm from "components/Category/NewCategoryForm";
 
-const ProductCreate = () => {
+const ProductEdit = () => {
   const [isCategoryModalActive, setisCategoryModalActive] = useState(false);
   const [isActive, setisActive] = useState(true);
   return (
@@ -18,7 +18,7 @@ const ProductCreate = () => {
         <NewCategoryForm />
       </Modal>
       <div className="flex justify-between">
-        <Heading level="2">Yeni Ürün / Hizmet Oluştur</Heading>
+        <Heading level="2">Ürün / Hizmet Bilgilerini Güncelle</Heading>
       </div>
 
       <form className="mt-4">
@@ -33,7 +33,6 @@ const ProductCreate = () => {
                   <select
                     id="category"
                     name="category"
-                    autoFocus
                     className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                   >
                     <option>Elektronik</option>
@@ -56,7 +55,7 @@ const ProductCreate = () => {
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                   Ürün İsimi
                 </label>
-                <Input type="text" id="name" name="name" />
+                <Input type="text" id="name" name="name" defaultValue="12'lik rota klima" />
               </div>
               <div className="col-span-6">
                 <label htmlFor="desc" className="block text-sm font-medium text-gray-700">
@@ -67,7 +66,12 @@ const ProductCreate = () => {
                   id="desc"
                   rows={3}
                   className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                ></textarea>
+                >
+                  tüketiciler için ücretsiz bir bilgi servisidir. Alışveriş öncesi sipariş edilecek ürünle ilgili
+                  geçerli bilgi her zaman için ilgili satıcıdan alınmalıdır. akakce.com'da verilen bilgilerdeki
+                  hatalardan, eksikliklerden veya bu bilgilere dayanılarak yapılan işlemler sonucu meydana gelebilecek
+                  her
+                </textarea>
               </div>
               <div className="col-span-6 sm:col-span-3">
                 <label htmlFor="salePrice" className="block text-sm font-medium text-gray-700">
@@ -79,6 +83,7 @@ const ProductCreate = () => {
                   suffix=" ₺"
                   placeholder="0.00 ₺"
                   className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  defaultValue={100}
                 />
               </div>
               <div className="col-span-6 sm:col-span-3">
@@ -91,6 +96,7 @@ const ProductCreate = () => {
                   suffix=" ₺"
                   placeholder="0.00 ₺"
                   className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                  defaultValue={120}
                 />
               </div>
               <div className="col-span-6">
@@ -125,4 +131,4 @@ const ProductCreate = () => {
   );
 };
 
-export default ProductCreate;
+export default ProductEdit;
