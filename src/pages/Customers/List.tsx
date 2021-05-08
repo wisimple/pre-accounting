@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Heading from "components/Heading";
 import Button from "components/Button";
 import Input from "components/Input";
+import MoneyText from "components/MoneyText";
 
 const people = [
   {
@@ -164,12 +165,9 @@ const List = () => {
                           <span className="text-sm text-gray-600">{person.address}</span>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-right">
-                          <span
-                            className={`px-2 inline-flex leading-5 font-semibold rounded-full ${
-                              person.blnc < 0 ? "bg-red-100 text-red-800" : "bg-green-100 text-green-800"
-                            }`}
-                          >
-                            {Math.abs(person.blnc)} ₺ {person.blnc < 0 ? "(B)" : person.blnc === 0 ? "" : "(A)"}
+                          <span className={`px-2 inline-flex leading-5 font-semibold rounded-full text-gray-700`}>
+                            <MoneyText amount={Math.abs(person.blnc)} />
+                            {person.blnc < 0 ? "(B)" : person.blnc === 0 ? "" : "(A)"}
                           </span>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm">

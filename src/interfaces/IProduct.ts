@@ -4,7 +4,7 @@ export interface IProduct {
   _id: string;
   categoryId: ICategory;
   name: string;
-  desc: string;
+  desc?: string;
   sPrice: number;
   pPrice: number;
   active: boolean;

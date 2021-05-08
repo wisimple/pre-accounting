@@ -6,7 +6,7 @@ import Modal from "components/Modal";
 import Button from "components/Button";
 import { DocumentAddIcon, PlusIcon } from "@heroicons/react/solid";
 
-import NumberFormat from "react-number-format";
+import CurrencyInput from "react-currency-input-field";
 import NewCategoryForm from "components/Category/NewCategoryForm";
 
 const ProductEdit = () => {
@@ -74,29 +74,33 @@ const ProductEdit = () => {
                 </textarea>
               </div>
               <div className="col-span-6 sm:col-span-3">
-                <label htmlFor="salePrice" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="salePrice" className="label">
                   Satış Fiyatı
                 </label>
-                <NumberFormat
+                <CurrencyInput
+                  suffix=" ₺"
+                  step={1}
+                  decimalScale={2}
                   id="salePrice"
                   name="salePrice"
-                  suffix=" ₺"
                   placeholder="0.00 ₺"
-                  className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                  defaultValue={100}
+                  className="input"
+                  value={100}
                 />
               </div>
               <div className="col-span-6 sm:col-span-3">
-                <label htmlFor="purchasePrice" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="purchasePrice" className="label">
                   Alış Fiyatı
                 </label>
-                <NumberFormat
+                <CurrencyInput
+                  suffix=" ₺"
+                  step={1}
+                  decimalScale={2}
                   id="purchasePrice"
                   name="purchasePrice"
-                  suffix=" ₺"
                   placeholder="0.00 ₺"
-                  className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                  defaultValue={120}
+                  className="input"
+                  value={200}
                 />
               </div>
               <div className="col-span-6">

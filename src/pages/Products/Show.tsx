@@ -1,7 +1,8 @@
 import { IProduct } from "interfaces/IProduct";
 import Button from "components/Button";
 import { PencilAltIcon } from "@heroicons/react/solid";
-import { Link, useLocation, useRouteMatch } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
+import MoneyText from "components/MoneyText";
 
 const product: IProduct = {
   _id: "6",
@@ -52,11 +53,15 @@ const ProductShow = () => {
           </div>
           <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-500">Alış Fiyatı</dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{product.pPrice}.00 ₺</dd>
+            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              <MoneyText amount={product.pPrice} />
+            </dd>
           </div>
           <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt className="text-sm font-medium text-gray-500">Satış Fiyatı</dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{product.sPrice}.00 ₺</dd>
+            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              <MoneyText amount={product.sPrice} />
+            </dd>
           </div>
         </dl>
       </div>

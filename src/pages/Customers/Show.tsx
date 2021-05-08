@@ -16,6 +16,7 @@ import {
 import Button from "components/Button";
 
 import InvoiceList from "components/Invoice/List";
+import MoneyText from "components/MoneyText";
 
 const customer: ICustomer = {
   _id: "1",
@@ -124,14 +125,22 @@ function Transactions() {
                           <span className="text-sm text-gray-600">Sdfsdfsdf sdfsf</span>
                         </td>
                         <td className="px-6 py-2 whitespace-nowrap text-right">
-                          {item % 3 === 0 && <span className="text-sm text-gray-600 rounded-full">3600.00 ₺</span>}
+                          {item % 3 === 0 && (
+                            <span className="text-sm text-gray-600 rounded-full">
+                              <MoneyText amount={3600} />
+                            </span>
+                          )}
                         </td>
                         <td className="px-6 py-2 whitespace-nowrap text-right">
-                          {item % 3 !== 0 && <span className="text-sm text-gray-600 rounded-full">3600.00 ₺</span>}
+                          {item % 3 !== 0 && (
+                            <span className="text-sm text-gray-600 rounded-full">
+                              <MoneyText amount={3600} />
+                            </span>
+                          )}
                         </td>
                         <td className="px-6 py-2 whitespace-nowrap text-right">
                           <span className="text-sm text-gray-600 rounded-full">
-                            3600.00 ₺ {item % 3 !== 0 ? "(A)" : "(B)"}
+                            <MoneyText amount={3600} /> {item % 3 !== 0 ? "(A)" : "(B)"}
                           </span>
                         </td>
                       </tr>

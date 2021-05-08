@@ -6,20 +6,28 @@ import { IProduct } from "interfaces/IProduct";
 
 import { products } from "mockData/products";
 import Button from "components/Button";
+import CurrencyInput from "react-currency-input-field";
+import MoneyText from "components/MoneyText";
 
 interface InvoiceItem {
   product: IProduct;
+  desc?: string;
   amount: number;
 }
 
 const SaleCreate = () => {
-  const [basketItems, setbasketItems] = useState<any[]>([]);
+  const [basketItems, setbasketItems] = useState<InvoiceItem[]>([]);
   const [isAddingProduct, setisAddingProduct] = useState(false);
 
-  const [addproductForm, setaddproductForm] = useState();
+  const [productForm, setproductForm] = useState<InvoiceItem>({ product: products[0], amount: 1 });
 
   const add2Basket = () => {
-    setbasketItems((prev) => [...prev, { product: products[0], amount: 1 }]);
+    setbasketItems((prev) => [...prev, productForm]);
+  };
+
+  const removeFromBasket = (index: number) => {
+    const newItems = basketItems.filter((item, i) => index !== i);
+    setbasketItems(newItems);
   };
 
   return (
@@ -108,7 +116,7 @@ const SaleCreate = () => {
                         {basketItems.map((item, index) => (
                           <tr key={index}>
                             <td className="px-6 py-4 whitespace-nowrap">
-                              <div className="text-sm text-gray-900">Urun</div>
+                              <div className="text-sm text-gray-900">{item.product.name}</div>
                               <div className="text-sm text-gray-500">Kategori (son 5 adet)</div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
@@ -118,24 +126,28 @@ const SaleCreate = () => {
                                 id="desc"
                                 className="input"
                                 placeholder="Açıklama veya notlar"
+                                onChange={({ target }) => setproductForm((form) => ({ ...form, desc: target.value }))}
                               />
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
                               <div className="text-sm text-gray-900">
-                                <NumberFormat type="text" suffix=" adet" className="input w-20" defaultValue={1} />
+                                <CurrencyInput suffix=" adet" className="input w-20" defaultValue={1} />
                               </div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-gray-800">15000 ₺</td>
                             <td className="px-6 py-4 whitespace-nowrap text-gray-800">40000 ₺</td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-center">
-                              <button className="flex items-center text-gray-700 hover:text-gray-800 p-1">
+                              <button
+                                className="flex items-center text-gray-700 hover:text-gray-800 p-1"
+                                onClick={() => removeFromBasket(index)}
+                              >
                                 <TrashIcon className="w-4 h-4 mr-1" /> Kaldır
                               </button>
                             </td>
                           </tr>
                         ))}
 
-                        <tr>
+                        <tr className="bg-gray-100">
                           <td className="px-6 py-4 whitespace-nowrap">
                             <select id="product" name="product" className="input">
                               {products.map((product) => (
@@ -156,11 +168,23 @@ const SaleCreate = () => {
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
                             <div className="text-sm text-gray-900">
-                              <NumberFormat type="text" suffix=" adet" className="input w-20" defaultValue={1} />
+                              <CurrencyInput
+                                type="text"
+                                suffix=" adet"
+                                className="input w-20"
+                                value={productForm.amount}
+                                onValueChange={(value) => {
+                                  setproductForm((prev) => ({ ...prev, amount: parseInt(value as string) | 0 }));
+                                }}
+                              />
                             </div>
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-gray-800">15000 ₺</td>
-                          <td className="px-6 py-4 whitespace-nowrap text-gray-800">40000 ₺</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-gray-800">
+                            <MoneyText amount={productForm.product.sPrice} />
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-gray-800">
+                            <MoneyText amount={productForm.amount * productForm.product.sPrice} />
+                          </td>
                           <td className="py-4 text-sm text-center">
                             <Button onClick={() => add2Basket()}>
                               <PlusIcon className="w-4 h-4 mr-1" /> Ekle

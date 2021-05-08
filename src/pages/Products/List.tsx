@@ -3,6 +3,7 @@ import Button from "components/Button";
 import { Link } from "react-router-dom";
 
 import { products } from "mockData/products";
+import MoneyText from "components/MoneyText";
 
 export default function ProductList() {
   return (
@@ -52,7 +53,9 @@ export default function ProductList() {
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span className="text-gray-900">{p.name}</span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">{p.sPrice}.00 ₺</td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <MoneyText amount={p.sPrice} />
+                      </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                           {p.active ? "Aktif" : "Pasif"}

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import { IIncovice } from "interfaces/IInvoice";
 import { getAvatarUrl } from "helpers/customerHelpers";
+import MoneyText from "components/MoneyText";
 
 const invoices: IIncovice[] = [
   {
@@ -132,7 +133,9 @@ const InvoiceList = ({ customerId }: InvoiceListProps) => {
                       </td>
                     )}
 
-                    <td className="px-6 py-4 whitespace-nowrap text-sm">{invoice.total}.00 ₺</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm">
+                      <MoneyText amount={invoice.total} />
+                    </td>
 
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                       {new Date(invoice.cAt).toLocaleDateString()}
