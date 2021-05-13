@@ -1,73 +1,10 @@
-import Heading from "components/Heading";
-import { getAvatarUrl } from "helpers/customerHelpers";
-import { ICustomer } from "interfaces/ICustomer";
-import { Switch, Route, useParams, useRouteMatch, useLocation, NavLink, Link } from "react-router-dom";
-
-import {
-  SwitchHorizontalIcon,
-  CashIcon,
-  ArrowSmDownIcon,
-  ArrowSmUpIcon,
-  ClipboardCheckIcon,
-  ClipboardListIcon,
-  PrinterIcon,
-} from "@heroicons/react/solid";
+import { ArrowSmDownIcon, ArrowSmUpIcon, PrinterIcon } from "@heroicons/react/solid";
+import { useLocation, Link } from "react-router-dom";
 
 import Button from "components/Button";
-
-import InvoiceList from "components/Invoice/List";
 import MoneyText from "components/MoneyText";
 
-const customer: ICustomer = {
-  _id: "1",
-  name: "Ali Yilmaz",
-  phone: "05454224138",
-  note: "Pazar günü ödeme yapacak",
-  blnc: -5000.4,
-  type: "company",
-  address: "Anıt, Necip Fazıl Kısakürek Cd., 33430 Tarsus/Mersin",
-  cAt: "2021-03-29T06:49:44.227Z",
-  uAt: "2021-03-29T06:49:44.227Z",
-};
-
-const CustomerShow = () => {
-  const params: { id: string } = useParams();
-
-  return (
-    <>
-      <div className="flex justify-between items-center">
-        <div className="flex flex-grow items-center">
-          <img src={getAvatarUrl(customer)} className="inline h-10 w-10 mr-2" />
-          <Heading level="2">{customer.name}</Heading>
-        </div>
-
-        <div className="flex items-center px-2 py-1 text-gray-700 bg-gray-300 rounded-lg text-sm">
-          <NavLink
-            to={`/customers/${params.id}/transactions`}
-            activeClassName="bg-gray-50"
-            className="flex px-2 py-1 rounded-md"
-          >
-            <CashIcon className="h-5 w-5" /> <span className="ml-1">Cari Hesap Ekstresi</span>
-          </NavLink>
-          <NavLink
-            to={`/customers/${params.id}/invoices`}
-            activeClassName="bg-gray-50"
-            className="flex ml-2 px-2 py-1 rounded-md"
-          >
-            <SwitchHorizontalIcon className="h-5 w-5" /> <span className="ml-1">Alış Satış İşlemleri</span>
-          </NavLink>
-        </div>
-      </div>
-
-      <Switch>
-        <Route path={`/customers/:customerId/transactions`} component={Transactions} />
-        <Route path={`/customers/:customerId/invoices`} component={Invoices} />
-      </Switch>
-    </>
-  );
-};
-
-function Transactions() {
+const Transactions = () => {
   const { pathname } = useLocation();
 
   return (
@@ -75,19 +12,17 @@ function Transactions() {
       <div className="flex items-center justify-end mt-3">
         <div className="px-2">
           <Link to={pathname + "/create/collect"}>
-            <Button size="sm" color="green">
-              <ArrowSmDownIcon className="h-4 w-4 mr-1" /> Tahsil Et
+            <Button size="sm" color="blue" icon={<ArrowSmDownIcon />}>
+              Tahsil Et
             </Button>
           </Link>
           <Link to={pathname + "/create/pay"} className="ml-2">
-            <Button size="sm" color="gray">
-              <ArrowSmUpIcon className="h-4 w-4 mr-1" /> Ödeme Yap
+            <Button size="sm" color="yellow" icon={<ArrowSmUpIcon />}>
+              Ödeme Yap
             </Button>
           </Link>
         </div>
-        <Button>
-          <PrinterIcon className="h-5 w-5 mr-1" /> Yazdır
-        </Button>
+        <Button icon={<PrinterIcon />}>Yazdır</Button>
       </div>
       <div className="flex flex-col mt-4">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -168,34 +103,6 @@ function Transactions() {
       </div>
     </>
   );
-}
+};
 
-function Invoices() {
-  const params: { customerId: string } = useParams();
-  const { pathname } = useLocation();
-
-  return (
-    <>
-      <div className="flex items-center justify-end mt-3">
-        <div className="px-2">
-          <Link to={pathname + "/create/purchase"}>
-            <Button size="sm" color="gray">
-              <ClipboardListIcon className="h-4 w-4 mr-1" /> Alış Yap
-            </Button>
-          </Link>
-          <Link to={pathname + "/create/sell"} className="ml-2">
-            <Button size="sm" color="green">
-              <ClipboardCheckIcon className="h-4 w-4 mr-1" /> Satış Yap
-            </Button>
-          </Link>
-        </div>
-        <Button>
-          <PrinterIcon className="h-5 w-5 mr-1" /> Yazdır
-        </Button>
-      </div>
-      <InvoiceList customerId={params.customerId} />
-    </>
-  );
-}
-
-export default CustomerShow;
+export default Transactions;

@@ -11,7 +11,7 @@ import { CubeIcon } from "@heroicons/react/outline";
 export const routes = [
   { icon: <HomeIcon className="h-5 w-5" />, text: "Ana Ekran", path: "/" },
   { icon: <ShoppingCartIcon className="h-5 w-5" />, text: "Ürünler / Hizmetler", path: "/products" },
-  { icon: <CollectionIcon className="h-5 w-5" />, text: "Cari Hesaplar", path: "/customers" },
+  { icon: <CollectionIcon className="h-5 w-5" />, text: "Cari Hesaplar", path: "/current-accounts" },
   {
     icon: <SwitchHorizontalIcon className="h-5 w-5" />,
     text: "Alış Satış İşlemleri",

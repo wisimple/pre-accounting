@@ -1,4 +1,18 @@
 import { IProduct } from "interfaces/IProduct";
+import { categories } from "./categories";
+
+export const product: IProduct = {
+  _id: "6",
+  name: "Rota 12'lik klima",
+  desc: "tüketiciler için ücretsiz bir bilgi servisidir. Alışveriş öncesi sipariş edilecek ürünle ilgili geçerli bilgi her zaman için ilgili satıcıdan alınmalıdır. akakce.com'da verilen bilgilerdeki hatalardan, eksikliklerden veya bu bilgilere dayanılarak yapılan işlemler sonucu meydana gelebilecek her ",
+  categoryId: categories[2],
+  sPrice: 100,
+  pPrice: 120,
+  stock: 23,
+  unit: "lt",
+  active: false,
+  cAt: "2021-04-26T19:26:02.986Z",
+};
 
 export const products: IProduct[] = [
   {
@@ -7,8 +21,9 @@ export const products: IProduct[] = [
     categoryId: { _id: "1", name: "Beyaz Eşya" },
     sPrice: 100,
     pPrice: 120,
+    stock: 100,
+    unit: "piece",
     active: true,
-
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -17,8 +32,9 @@ export const products: IProduct[] = [
     categoryId: { _id: "1", name: "Tup" },
     sPrice: 100,
     pPrice: 120,
+    stock: 12,
+    unit: "kg",
     active: true,
-
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -27,8 +43,9 @@ export const products: IProduct[] = [
     categoryId: { _id: "1", name: "Tup" },
     sPrice: 100,
     pPrice: 120,
+    stock: 12,
+    unit: "lt",
     active: true,
-
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -37,8 +54,9 @@ export const products: IProduct[] = [
     categoryId: { _id: "1", name: "Tup" },
     sPrice: 100,
     pPrice: 120,
+    stock: 12,
+    unit: "kg",
     active: true,
-
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -47,8 +65,9 @@ export const products: IProduct[] = [
     categoryId: { _id: "1", name: "Tup" },
     sPrice: 100,
     pPrice: 120,
+    stock: 12,
+    unit: "kg",
     active: true,
-
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -57,8 +76,9 @@ export const products: IProduct[] = [
     categoryId: { _id: "1", name: "Beyaz Eşya" },
     sPrice: 100,
     pPrice: 120,
+    stock: 12,
+    unit: "kg",
     active: true,
-
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -67,8 +87,9 @@ export const products: IProduct[] = [
     categoryId: { _id: "1", name: "Beyaz Eşya" },
     sPrice: 100,
     pPrice: 120,
+    stock: 12,
+    unit: "kg",
     active: true,
-
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -77,8 +98,9 @@ export const products: IProduct[] = [
     categoryId: { _id: "1", name: "Beyaz Eşya" },
     sPrice: 100,
     pPrice: 120,
+    stock: 12,
+    unit: "kg",
     active: true,
-
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -87,8 +109,9 @@ export const products: IProduct[] = [
     categoryId: { _id: "1", name: "Beyaz Eşya" },
     sPrice: 100,
     pPrice: 120,
+    stock: 12,
+    unit: "kg",
     active: true,
-
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -97,8 +120,9 @@ export const products: IProduct[] = [
     categoryId: { _id: "1", name: "Beyaz Eşya" },
     sPrice: 100,
     pPrice: 120,
+    stock: 12,
+    unit: "kg",
     active: true,
-
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -107,8 +131,9 @@ export const products: IProduct[] = [
     categoryId: { _id: "1", name: "Beyaz Eşya" },
     sPrice: 100,
     pPrice: 120,
+    stock: 12,
+    unit: "kg",
     active: true,
-
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -117,8 +142,9 @@ export const products: IProduct[] = [
     categoryId: { _id: "1", name: "Beyaz Eşya" },
     sPrice: 100,
     pPrice: 120,
+    stock: 12,
+    unit: "kg",
     active: true,
-
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -127,8 +153,9 @@ export const products: IProduct[] = [
     categoryId: { _id: "1", name: "Beyaz Eşya" },
     sPrice: 100,
     pPrice: 120,
+    stock: 12,
+    unit: "kg",
     active: true,
-
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -137,8 +164,9 @@ export const products: IProduct[] = [
     categoryId: { _id: "1", name: "Beyaz Eşya" },
     sPrice: 100,
     pPrice: 120,
+    stock: 12,
+    unit: "kg",
     active: true,
-
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -147,8 +175,9 @@ export const products: IProduct[] = [
     categoryId: { _id: "1", name: "Beyaz Eşya" },
     sPrice: 100,
     pPrice: 120,
+    stock: 12,
+    unit: "kg",
     active: true,
-
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -157,8 +186,9 @@ export const products: IProduct[] = [
     categoryId: { _id: "1", name: "Beyaz Eşya" },
     sPrice: 100,
     pPrice: 120,
+    stock: 12,
+    unit: "kg",
     active: true,
-
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -167,8 +197,9 @@ export const products: IProduct[] = [
     categoryId: { _id: "1", name: "Beyaz Eşya" },
     sPrice: 100,
     pPrice: 120,
+    stock: 12,
+    unit: "kg",
     active: true,
-
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -177,8 +208,9 @@ export const products: IProduct[] = [
     categoryId: { _id: "1", name: "Beyaz Eşya" },
     sPrice: 100,
     pPrice: 120,
+    stock: 12,
+    unit: "kg",
     active: true,
-
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -187,8 +219,9 @@ export const products: IProduct[] = [
     categoryId: { _id: "1", name: "Beyaz Eşya" },
     sPrice: 100,
     pPrice: 120,
+    stock: 12,
+    unit: "kg",
     active: true,
-
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -197,8 +230,9 @@ export const products: IProduct[] = [
     categoryId: { _id: "1", name: "Beyaz Eşya" },
     sPrice: 100,
     pPrice: 120,
+    stock: 12,
+    unit: "kg",
     active: true,
-
     cAt: "2021-04-28T01:58:03.206Z",
   },
 ];
