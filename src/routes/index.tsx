@@ -28,8 +28,8 @@ export const routes = [
     text: "Tahsilat ve Ödemeler",
     path: "/transactions",
     subRoutes: [
-      { icon: <CubeIcon className="h-4 w-4" />, text: "Tahsil Et", path: "/transactions/create/collect" },
-      { icon: <CubeIcon className="h-4 w-4" />, text: "Ödeme Yap", path: "/transactions/create/pay" },
+      { icon: <CubeIcon className="h-4 w-4" />, text: "Tahsil Et", path: "/transactions/create/collection" },
+      { icon: <CubeIcon className="h-4 w-4" />, text: "Ödeme Yap", path: "/transactions/create/payment" },
     ],
   },
   {

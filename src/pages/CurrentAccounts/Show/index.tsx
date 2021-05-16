@@ -1,5 +1,5 @@
 import Heading from "components/Heading";
-import { Switch, Route, useRouteMatch, NavLink, Link } from "react-router-dom";
+import { Switch, Route, useRouteMatch, NavLink, Link, useParams } from "react-router-dom";
 
 import { SwitchHorizontalIcon, CashIcon, PencilAltIcon } from "@heroicons/react/solid";
 

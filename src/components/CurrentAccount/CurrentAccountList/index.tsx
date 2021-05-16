@@ -61,16 +61,16 @@ const CurrentAccountItem = ({ currentAccount }: ItemProps) => {
 };
 
 const CurrentAccountList = ({ loading = true, activePage = 1, onPageChanged = () => {}, currentAccounts = [] }: ListProps) => {
-  const pageTotalDebt = currentAccounts.reduce((total, { debt }) => {
-    return total + debt;
-  }, 0);
+  // const pageTotalDebt = currentAccounts.reduce((total, { debt }) => {
+  //   return total + debt;
+  // }, 0);
 
-  const pageTotalCredit = currentAccounts.reduce((total, { credit }) => {
-    return total + credit;
-  }, 0);
+  // const pageTotalCredit = currentAccounts.reduce((total, { credit }) => {
+  //   return total + credit;
+  // }, 0);
 
-  const pageTotalBalance = pageTotalCredit - pageTotalDebt;
-  const isPageTotalOved = pageTotalBalance < 0;
+  // const pageTotalBalance = pageTotalCredit - pageTotalDebt;
+  // const isPageTotalOved = pageTotalBalance < 0;
 
   return (
     <div className="flex flex-col">
@@ -78,7 +78,7 @@ const CurrentAccountList = ({ loading = true, activePage = 1, onPageChanged = ()
         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div className="card">
             <Spinner loading={loading} />
-            <table className="min-w-full divide-y divide-gray-200">
+            <table className="table">
               <thead className="thead">
                 <tr>
                   <th scope="col" className="px-6 py-3 text-left cursor-pointer hover:bg-gray-300">
@@ -114,7 +114,7 @@ const CurrentAccountList = ({ loading = true, activePage = 1, onPageChanged = ()
                 {currentAccounts.map((a) => (
                   <CurrentAccountItem currentAccount={a} />
                 ))}
-                <tr className="bg-gray-50 text-gray-700">
+                {/* <tr className="bg-gray-50 text-gray-700">
                   <td className="text-right">Sayfa Toplamı</td>
                   <td className="px-6 py-2 whitespace-nowrap text-right">
                     <MoneyText amount={pageTotalDebt} bold />
@@ -133,7 +133,7 @@ const CurrentAccountList = ({ loading = true, activePage = 1, onPageChanged = ()
                     <span className="block text-xs">{pageTotalBalance > 0 ? "Ödenecek" : "Tahsil Edilecek"}</span>
                   </td>
                   <td></td>
-                </tr>
+                </tr> */}
                 <tr className="bg-gray-100 text-gray-800">
                   <td className="text-right">Genel Toplam</td>
                   <td className="px-6 py-2 whitespace-nowrap text-right">

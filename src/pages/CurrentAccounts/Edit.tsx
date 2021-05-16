@@ -1,6 +1,6 @@
 import Heading from "components/Heading";
 import Button from "components/Button";
-import CurrentAccountForm from "components/CurrentAccount/CurrenAccountForm";
+import CurrentAccountForm from "components/CurrentAccount/CurrentAccountForm";
 
 import { CurrentAccount } from "models/CurrentAccount";
 import { currentAccounts } from "mockData/currentAccounts";

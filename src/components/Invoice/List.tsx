@@ -79,8 +79,13 @@ const InvoiceList = ({ customerId }: InvoiceListProps) => {
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-100 text-gray-600 text-xs font-medium uppercase tracking-wider">
+            <table className="table">
+              <thead className="thead">
+                <tr className="bg-gray-100 font-semibold">
+                  <th colSpan={6} className="py-4 text-base">
+                    Alış / Satış İşlemleri
+                  </th>
+                </tr>
                 <tr>
                   <th scope="col" className="px-6 py-3 text-left">
                     Fatura No

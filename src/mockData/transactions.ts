@@ -11,7 +11,7 @@ export const transactions: ITransaction[] = [
   },
   {
     _id: "1",
-    type: TransactionType.Deposit,
+    type: TransactionType.Pay,
     blnc: 0,
     crdt: 5000,
     cAt: "2021-04-25T19:26:02.986Z",
@@ -25,7 +25,7 @@ export const transactions: ITransaction[] = [
   },
   {
     _id: "3",
-    type: TransactionType.Deposit,
+    type: TransactionType.Pay,
     blnc: -6500,
     crdt: 3500,
     cAt: "2021-05-14T19:26:02.986Z",
@@ -39,7 +39,7 @@ export const transactions: ITransaction[] = [
   },
   {
     _id: "5",
-    type: TransactionType.Withdrawal,
+    type: TransactionType.Collect,
     blnc: 1500,
     dbt: 7000,
     cAt: "2021-05-17T20:26:02.986Z",

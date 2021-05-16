@@ -3,8 +3,8 @@ import { ICurrentAccount } from "./ICurrentAccount";
 export enum TransactionType {
   Sale,
   Purchase,
-  Deposit,
-  Withdrawal,
+  Collect,
+  Pay,
 }
 
 export interface ITransaction {

@@ -28,9 +28,9 @@ export default class Transaction implements ITransaction {
         return "Satış Faturası";
       case TransactionType.Purchase:
         return "Alış Faturası";
-      case TransactionType.Deposit:
+      case TransactionType.Collect:
         return "Tahsilat";
-      case TransactionType.Withdrawal:
+      case TransactionType.Pay:
         return "Ödeme";
     }
   }

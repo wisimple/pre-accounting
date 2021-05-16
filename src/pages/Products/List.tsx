@@ -32,7 +32,7 @@ export default function ProductList() {
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div className="card">
               <Spinner loading={loading} />
-              <table className="min-w-full divide-y divide-gray-200">
+              <table className="table">
                 <thead className="bg-gray-100 text-xs font-medium uppercase tracking-wider">
                   <tr>
                     <th scope="col" className="px-6 py-3 text-left">

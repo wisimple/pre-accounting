@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
 import Heading from "components/Heading";
-import CurrentAccountForm from "components/CurrentAccount/CurrenAccountForm";
+import CurrentAccountForm from "components/CurrentAccount/CurrentAccountForm";
 
 const CustomerCreate = () => {
   const history = useHistory();

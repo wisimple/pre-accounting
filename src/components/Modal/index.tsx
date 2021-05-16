@@ -58,10 +58,10 @@ const Modal = ({ show = true, setShow = () => {}, children, title }: ModalProps)
               )}
               {children}
               <button
-                className="absolute top-4 right-4 sm:right-6 text-white rounded-full p-1 bg-gradient-to-br from-red-500 to-red-300 focus:outline-none"
+                className="absolute top-4 right-4 sm:right-6 rounded-full p-1 bg-red-500 hover:bg-red-600 text-white shadow-sm focus:outline-none"
                 onClick={() => setShow(false)}
               >
-                <XIcon className="h-3 w-3" />
+                <XIcon className="h-4 w-4" />
               </button>
             </div>
           </Transition.Child>

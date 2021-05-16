@@ -1,54 +1,67 @@
 import { ArrowSmDownIcon, ArrowSmUpIcon, PrinterIcon } from "@heroicons/react/solid";
-import { useLocation, Link } from "react-router-dom";
+import { Link, useParams, useRouteMatch } from "react-router-dom";
 
 import Button from "components/Button";
 import MoneyText from "components/MoneyText";
 import { transactions } from "mockData/transactions";
 import Transaction from "models/Transaction";
 import { TransactionType } from "interfaces/ITransaction";
-import SelectMenu from "components/SelectMenu";
+import { currentAccounts } from "mockData/currentAccounts";
 
 const Transactions = () => {
-  const { pathname } = useLocation();
+  const match: any = useRouteMatch({ path: "/current-accounts/:id/transactions" });
+
+  const currentAccountId = match?.params.id || "";
+  const currentAccount = currentAccounts[0];
 
   return (
     <>
-      <div className="flex items-center justify-end mt-3">
-        <div className="px-2">
-          <Link to={pathname + "/create/collect"}>
+      <div className="flex justify-between items-center mt-6">
+        <div className="flex-grow">
+          <form className="grid grid-cols-12">
+            <div className="col-span-3">
+              <label htmlFor="type" className="label">
+                İşlem Türü
+              </label>
+              <select name="type" id="type" className="input">
+                <option value="">Tümü</option>
+                {[0, 1, 2, 3].map((item) => (
+                  <option key={item} value={TransactionType[item]}>
+                    {Transaction.getTypeString(item)}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </form>
+        </div>
+        <div>
+          <Link to={`/transactions/create/collection?cAId=${currentAccountId}`}>
             <Button size="sm" color="blue" icon={<ArrowSmDownIcon />}>
               Tahsil Et
             </Button>
           </Link>
-          <Link to={pathname + "/create/pay"} className="ml-2">
+          <Link to={`/transactions/create/payment?cAId=${currentAccountId}`} className="ml-2">
             <Button size="sm" color="yellow" icon={<ArrowSmUpIcon />}>
               Ödeme Yap
             </Button>
           </Link>
+          <Button icon={<PrinterIcon />} className="ml-2">
+            Yazdır
+          </Button>
         </div>
-        <Button icon={<PrinterIcon />}>Yazdır</Button>
       </div>
-      <div>
-        <form className="grid grid-cols-12">
-          <div className="col-span-3">
-            <label htmlFor="type" className="label">
-              İşlem Türü
-            </label>
-            <select name="type" id="type" className="input">
-              <option value="">Tümü</option>
-              {[0, 1, 2, 3].map((item) => (
-                <option value={TransactionType[item]}>{Transaction.getTypeString(item)}</option>
-              ))}
-            </select>
-          </div>
-        </form>
-      </div>
+
       <div className="flex flex-col mt-4">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-            <div className="shadow border-b border-gray-200 sm:rounded-lg">
-              <table className="min-w-full divide-y divide-gray-200">
+            <div className="card">
+              <table className="table">
                 <thead className="thead">
+                  <tr className="bg-gray-100 font-semibold">
+                    <th colSpan={6} className="py-4 text-base">
+                      Cari Hesap Ekstresi
+                    </th>
+                  </tr>
                   <tr>
                     <th scope="col" className="px-6 py-3 text-left">
                       Tarih

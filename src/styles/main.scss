@@ -15,6 +15,10 @@
     @apply relative bg-white sm:rounded-lg shadow border-b border-gray-200 overflow-hidden;
   }
 
+  .table {
+    @apply min-w-full divide-y divide-gray-200;
+  }
+
   .thead {
     @apply bg-gray-200 text-gray-600 text-xs font-medium uppercase tracking-wider;
   }
