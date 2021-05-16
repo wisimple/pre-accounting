@@ -89,11 +89,11 @@ const InvoiceList = ({ customerId }: InvoiceListProps) => {
                     Fatura Tipi
                   </th>
 
-                  {!customerId && (
+                  {/* {!customerId && (
                     <th scope="col" className="px-6 py-3 text-left">
                       Müşteri
                     </th>
-                  )}
+                  )} */}
 
                   <th scope="col" className="px-6 py-3 text-left">
                     Tutar
@@ -116,11 +116,9 @@ const InvoiceList = ({ customerId }: InvoiceListProps) => {
                       <div className="text-sm text-gray-900">{invoice.no}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">
-                        {invoice.type === "sale" ? "Satış Faturası" : "Alış Faturası"}
-                      </div>
+                      <div className="text-sm text-gray-900">{invoice.type === "sale" ? "Satış Faturası" : "Alış Faturası"}</div>
                     </td>
-                    {!customerId && (
+                    {/* {!customerId && (
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           <div className="flex-shrink-0 h-10 w-10">
@@ -131,7 +129,7 @@ const InvoiceList = ({ customerId }: InvoiceListProps) => {
                           </div>
                         </div>
                       </td>
-                    )}
+                    )} */}
 
                     <td className="px-6 py-4 whitespace-nowrap text-sm">
                       <MoneyText amount={invoice.total} />
@@ -144,10 +142,7 @@ const InvoiceList = ({ customerId }: InvoiceListProps) => {
                       {new Date(invoice.dueAt).toLocaleDateString()}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm">
-                      <Link
-                        to={"/invoices/" + invoice._id}
-                        className="flex items-center text-blue-600 hover:text-blue-900"
-                      >
+                      <Link to={"/invoices/" + invoice._id} className="flex items-center text-blue-600 hover:text-blue-900">
                         Görüntüle <ChevronRightIcon className="h-5 w-5" />
                       </Link>
                     </td>

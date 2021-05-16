@@ -34,7 +34,7 @@ export const products: IProduct[] = [
     pPrice: 120,
     stock: 12,
     unit: "kg",
-    active: true,
+    active: false,
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -67,7 +67,7 @@ export const products: IProduct[] = [
     pPrice: 120,
     stock: 12,
     unit: "kg",
-    active: true,
+    active: false,
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {
@@ -100,7 +100,7 @@ export const products: IProduct[] = [
     pPrice: 120,
     stock: 12,
     unit: "kg",
-    active: true,
+    active: false,
     cAt: "2021-04-28T01:58:03.206Z",
   },
   {

@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
-export const MoneyStyles = styled.span`
+interface MoneyStyleProps {
+  bold?: boolean;
+}
+
+export const MoneyStyles = styled.span<MoneyStyleProps>`
   font-family: "Roboto Mono", monospace;
-  font-weight: 400;
+  font-weight: ${(props) => (props.bold ? 600 : 400)};
 `;
 
 export const CurrencyStyles = styled.span`

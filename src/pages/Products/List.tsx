@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronRightIcon, PlusIcon, ShoppingCartIcon } from "@heroicons/react/solid";
+import { CheckCircleIcon, PauseIcon, ChevronRightIcon, PlusIcon, ShoppingCartIcon } from "@heroicons/react/outline";
 import Button from "components/Button";
 import { Link } from "react-router-dom";
 
@@ -71,9 +71,15 @@ export default function ProductList() {
                           {product.stock} {unitAbbreviation}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            {product.active ? "Aktif" : "Pasif"}
-                          </span>
+                          {product.active ? (
+                            <span className="text-sm inline-flex text-blue-500">
+                              <CheckCircleIcon className="h-5 w-5 mr-1" /> Aktif
+                            </span>
+                          ) : (
+                            <span className="text-sm inline-flex text-yellow-500">
+                              <PauseIcon className="h-5 w-5 mr-1" /> Pasif
+                            </span>
+                          )}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <Link to={`/products/${product._id}`} className="flex items-center text-sm">

@@ -1,16 +1,9 @@
-import React from "react";
-
-import { DocumentAddIcon } from "@heroicons/react/solid";
-import Button from "components/Button";
+import { useHistory } from "react-router-dom";
 import Heading from "components/Heading";
-import Layout from "containers/Layout";
 import CurrentAccountForm from "components/CurrentAccount/CurrenAccountForm";
 
-export default function CustomerCreate() {
-  const handleOnSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    console.log("hello");
-  };
+const CustomerCreate = () => {
+  const history = useHistory();
 
   return (
     <>
@@ -19,8 +12,10 @@ export default function CustomerCreate() {
       </div>
 
       <div className="card mt-4">
-        <CurrentAccountForm />
+        <CurrentAccountForm onSubmitSuccess={() => history.goBack()} />
       </div>
     </>
   );
-}
+};
+
+export default CustomerCreate;

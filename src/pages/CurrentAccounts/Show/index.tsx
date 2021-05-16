@@ -1,6 +1,4 @@
 import Heading from "components/Heading";
-import { getAvatarUrl } from "helpers/customerHelpers";
-import { ICustomer } from "interfaces/ICustomer";
 import { Switch, Route, useRouteMatch, NavLink, Link } from "react-router-dom";
 
 import { SwitchHorizontalIcon, CashIcon, PencilAltIcon } from "@heroicons/react/solid";

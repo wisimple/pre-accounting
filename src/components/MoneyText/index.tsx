@@ -5,11 +5,12 @@ interface MoneyTextProps {
   amount?: number;
   currency?: string;
   balance?: number;
+  bold?: boolean;
 }
 
-const MoneyText = ({ amount = 0, currency = "₺", balance }: MoneyTextProps) => {
+const MoneyText = ({ amount = 0, currency = "₺", balance, bold = false }: MoneyTextProps) => {
   return (
-    <MoneyStyles>
+    <MoneyStyles bold={bold}>
       {formatMoney(amount)}
       <CurrencyStyles>{currency}</CurrencyStyles>
       {balance && balance !== 0 ? (

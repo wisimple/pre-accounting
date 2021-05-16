@@ -26,7 +26,7 @@ const Spinner = ({ loading = false, fullScreen = true, text = "Lütfen bekleyini
         <div className="absolute top-48 left-1/2 transform -translate-x-1/2">
           <div className="card flex flex-col items-center space-y-2 bg-gray-50 bg-opacity-90 p-2">
             <StyledSpinner />
-            <span className="text-sm text-gray-700">{text}</span>
+            <span className="text-sm text-gray-600">{text}</span>
           </div>
         </div>
       </Transition>

@@ -15,11 +15,21 @@
     @apply relative bg-white sm:rounded-lg shadow border-b border-gray-200 overflow-hidden;
   }
 
+  .thead {
+    @apply bg-gray-200 text-gray-600 text-xs font-medium uppercase tracking-wider;
+  }
+
   .page-header {
-    @apply inline-flex items-center text-xl text-gray-700 px-2 py-1 rounded-lg font-medium;
+    @apply inline-flex items-center text-xl text-gray-700 py-1 rounded-lg font-medium;
 
     svg {
-      @apply h-7 w-7 mr-2 bg-gradient-to-br from-blue-400 to-blue-600 text-white p-1 rounded-md;
+      @apply h-8 w-8 mr-2 bg-gradient-to-br from-blue-400 to-blue-600 text-white p-1 rounded-md shadow;
     }
   }
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

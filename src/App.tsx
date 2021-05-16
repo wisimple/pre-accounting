@@ -30,13 +30,13 @@ const App = () => {
           <Route path="/products/:id/edit" component={ProductEdit} />
           <Route path="/products/:id" component={ProductShow} />
 
+          <Route path="/current-accounts/create" component={CurrentAccountCreate} />
           <Route path="/current-accounts/:id/transactions/create/pay" component={TransactionCreate} />
           <Route path="/current-accounts/:id/transactions/create/collect" component={TransactionCreate} />
           <Route path="/current-accounts/:id/invoices/create/sell" component={SaleCreate} />
           <Route path="/current-accounts/:id/invoices/create/purchase" component={SaleCreate} />
-          <Route path="/current-accounts/create" component={CurrentAccountCreate} />
-          <Route path="/current-accounts/:id" component={CurrentAccountShow} />
           <Route path="/current-accounts/:id/edit" component={CurrentAccountEdit} />
+          <Route path="/current-accounts/:id" component={CurrentAccountShow} />
           <Route path="/current-accounts" component={CurrentAccountList} />
 
           <Route path="/invoices/create/purchase" component={SaleCreate} />

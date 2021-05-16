@@ -56,15 +56,8 @@ export class CurrentAccount implements ICurrentAccount {
   }
 
   get isOwed(): boolean | undefined {
-    if (this.balance === 0) {
-      return;
-    }
+    if (this.balance === 0) return;
+
     return this.balance < 0;
-  }
-
-  get balanceStatusColor(): string | undefined {
-    if (this.isOwed === undefined) return "gray";
-
-    return this.isOwed ? "blue" : "yellow";
   }
 }
