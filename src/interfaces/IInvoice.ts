@@ -1,11 +1,9 @@
 import { ICustomer } from "./ICustomer";
 import { IProduct } from "./IProduct";
-
 export interface IIncovice {
   _id: string;
   no?: string;
   customer: ICustomer;
-
   type: "sale" | "purchase";
   items?: {
     productId: IProduct;

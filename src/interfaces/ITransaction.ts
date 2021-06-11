@@ -6,7 +6,6 @@ export enum TransactionType {
   Collect,
   Pay,
 }
-
 export interface ITransaction {
   _id: string;
   type: TransactionType;
@@ -17,7 +16,6 @@ export interface ITransaction {
   cAt: string;
   uAt?: string;
 }
-
 export interface ITransactionWithAccount extends ITransaction {
   cAId: ICurrentAccount;
 }

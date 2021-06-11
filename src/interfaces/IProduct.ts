@@ -1,6 +1,5 @@
 import { ICategory } from "./ICategory";
 import { UnitTypes } from "./IUnit";
-
 export interface IProduct {
   _id: string;
   categoryId: ICategory;

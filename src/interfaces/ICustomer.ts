@@ -1,3 +1,4 @@
+export type CustomerTypes = "company" | "person";
 export interface ICustomer {
   _id: string;
   name: string;
@@ -7,7 +8,7 @@ export interface ICustomer {
   blnc: number;
   address?: string;
   imageUrl?: string;
-  type: "company" | "person";
+  type: CustomerTypes;
   gender?: boolean;
   cAt: string;
   uAt?: string;
